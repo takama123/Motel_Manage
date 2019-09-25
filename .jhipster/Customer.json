@@ -1,0 +1,112 @@
+{
+  "name": "Customer",
+  "fields": [
+    {
+      "fieldName": "firstName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lastName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "gender",
+      "fieldType": "Gender",
+      "fieldValues": "MALE,FEMALE,OTHER"
+    },
+    {
+      "fieldName": "birthday",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "extraName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "originAddress",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nation",
+      "fieldType": "Nation",
+      "fieldValues": "KINH,MUONG,THAI,HOA,KHMER,TAY,EDE"
+    },
+    {
+      "fieldName": "religion",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nationality",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "indentity",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "regularlyAdress",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "address",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "academicLevel",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "qualification",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "foreignLevel",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "job",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "passsword",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "phone",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "Boolean"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "biography",
+      "otherEntityRelationshipName": "customer",
+      "relationshipName": "biographies"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "contract",
+      "otherEntityRelationshipName": "customer",
+      "relationshipName": "contracts"
+    }
+  ],
+  "changelogDate": "20200707070601",
+  "entityTableName": "customer",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

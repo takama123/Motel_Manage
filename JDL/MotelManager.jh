@@ -1,0 +1,148 @@
+enum Role {
+	SYSTEM_ADMIN,
+    MANAGER,
+    VIEWER,
+    USER
+}
+
+enum AccountStatus {
+	STAYING,
+    LEAVED
+}
+
+enum Gender {
+	MALE,
+    FEMALE,
+    OTHER
+}
+
+enum RoomStatus {
+	AVAILABlE,
+    BOOKED,
+    REPAIRING
+}
+
+enum Nation {
+	KINH,
+    MUONG,
+    THAI,
+    HOA,
+    KHMER,
+    TAY,
+    EDE
+}
+
+entity User {
+	firstName String,
+    lastName String,
+    email String,
+    passsword String,
+    phone String,
+    status Boolean,
+    role Role
+}
+
+entity Customer {
+	firstName String,
+    lastName String,
+    gender Gender,
+    birthday String,
+    extraName String,
+    originAddress String,
+    nation Nation,
+    religion String,
+    nationality String,
+    indentity String,
+    regularlyAdress String,
+    address String,
+    academicLevel String,
+    qualification String,
+    foreignLevel String,
+    job String,
+    email String,
+    passsword String,
+    phone String,
+    address String,
+    status Boolean
+}
+
+entity Biography {
+	fromDate LocalDate,
+    toDate LocalDate,
+    address String,
+    workingDecription String
+}
+
+entity Motel {
+	title String,
+    address String,
+    phone String,
+    decription String,
+    electricityPrice Double,
+    waterPrice Double    
+}
+
+entity File {
+	originName String,
+    name String,
+    path String
+}
+
+entity Room {
+	title String,
+    price Double,
+    status RoomStatus,
+    acreage Double,
+    decription String
+}
+
+entity Convenient {
+	title String,
+    decription String
+}
+
+entity Services {
+	title String,
+    price Double,
+    decription String
+}
+
+entity Contract {
+	checkInDate LocalDate,
+    checkOutDate LocalDate,
+    decription String
+}
+
+entity BillDetails {
+	startDate LocalDate,
+    endDate LocalDate,
+    oldKwh Double,
+    oldWater Double,
+    newKwh Double,    
+    newWater Double,
+    roomPrice Double,
+    electricityPrice Double,
+    waterPrice Double
+}
+
+entity ExtraPaymentData {
+	cost Double,
+    decription String
+}
+
+relationship OneToMany {
+	Customer{biographies} to Biography,
+    Motel{images} to File,
+    Motel{rooms} to Room,
+    Room{images} to File,
+    Motel{convenients} to Convenient,
+    Motel{services} to Services,
+    Room{services} to Services,
+    Room{convenients} to Convenient,
+    BillDetails{extraPaymentDatas} to ExtraPaymentData,
+    Contract{paymentDatas} to BillDetails,
+    Customer{contracts} to Contract,
+    Room{contracts} to Contract,
+}
+
+service all with serviceImpl

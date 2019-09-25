@@ -1,0 +1,66 @@
+{
+  "name": "Motel",
+  "fields": [
+    {
+      "fieldName": "title",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "address",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "phone",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "decription",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "electricityPrice",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "waterPrice",
+      "fieldType": "Double"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "file",
+      "otherEntityRelationshipName": "motel",
+      "relationshipName": "images"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "room",
+      "otherEntityRelationshipName": "motel",
+      "relationshipName": "rooms"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "convenient",
+      "otherEntityRelationshipName": "motel",
+      "relationshipName": "convenients"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "services",
+      "otherEntityRelationshipName": "motel",
+      "relationshipName": "services"
+    }
+  ],
+  "changelogDate": "20200707070801",
+  "entityTableName": "motel",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

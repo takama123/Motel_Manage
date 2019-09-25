@@ -1,0 +1,48 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="biography">
+            <h2><span>Biography</span> {{ biography.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span>From Date</span></dt>
+                <dd>
+                    <span>{{ biography.fromDate }}</span>
+                </dd>
+                <dt><span>To Date</span></dt>
+                <dd>
+                    <span>{{ biography.toDate }}</span>
+                </dd>
+                <dt><span>Address</span></dt>
+                <dd>
+                    <span>{{ biography.address }}</span>
+                </dd>
+                <dt><span>Working Decription</span></dt>
+                <dd>
+                    <span>{{ biography.workingDecription }}</span>
+                </dd>
+                <dt><span>Customer</span></dt>
+                <dd>
+                    <div *ngIf="biography.customer">
+                        <a [routerLink]="['/customer', biography.customer?.id, 'view']">{{ biography.customer?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/biography', biography.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

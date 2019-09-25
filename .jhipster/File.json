@@ -1,0 +1,44 @@
+{
+  "name": "File",
+  "fields": [
+    {
+      "fieldName": "originName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "path",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "motel",
+      "otherEntityRelationshipName": "images",
+      "relationshipName": "motel",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "room",
+      "otherEntityRelationshipName": "images",
+      "relationshipName": "room",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200707070901",
+  "entityTableName": "file",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

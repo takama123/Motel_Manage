@@ -1,0 +1,44 @@
+{
+  "name": "Services",
+  "fields": [
+    {
+      "fieldName": "title",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "price",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "decription",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "motel",
+      "otherEntityRelationshipName": "services",
+      "relationshipName": "motel",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "room",
+      "otherEntityRelationshipName": "services",
+      "relationshipName": "room",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200707071201",
+  "entityTableName": "services",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

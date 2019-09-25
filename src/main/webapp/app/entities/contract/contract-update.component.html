@@ -1,0 +1,68 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-contract-heading">Create or edit a Contract</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_checkInDate">Check In Date</label>
+                    <div class="input-group">
+                        <input id="field_checkInDate" type="text" class="form-control" name="checkInDate" ngbDatepicker #checkInDateDp="ngbDatepicker" formControlName="checkInDate"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="checkInDateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_checkOutDate">Check Out Date</label>
+                    <div class="input-group">
+                        <input id="field_checkOutDate" type="text" class="form-control" name="checkOutDate" ngbDatepicker #checkOutDateDp="ngbDatepicker" formControlName="checkOutDate"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="checkOutDateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_decription">Decription</label>
+                    <input type="text" class="form-control" name="decription" id="field_decription"
+                           formControlName="decription"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_customer">Customer</label>
+                    <select class="form-control" id="field_customer" name="customer" formControlName="customer">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="customerOption.id === editForm.get('customer')!.value?.id ? editForm.get('customer')!.value : customerOption" *ngFor="let customerOption of customers; trackBy: trackById">{{ customerOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_room">Room</label>
+                    <select class="form-control" id="field_room" name="room" formControlName="room">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="roomOption.id === editForm.get('room')!.value?.id ? editForm.get('room')!.value : roomOption" *ngFor="let roomOption of rooms; trackBy: trackById">{{ roomOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

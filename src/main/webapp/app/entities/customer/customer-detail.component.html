@@ -1,0 +1,106 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="customer">
+            <h2><span>Customer</span> {{ customer.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span>First Name</span></dt>
+                <dd>
+                    <span>{{ customer.firstName }}</span>
+                </dd>
+                <dt><span>Last Name</span></dt>
+                <dd>
+                    <span>{{ customer.lastName }}</span>
+                </dd>
+                <dt><span>Gender</span></dt>
+                <dd>
+                    <span>{{ customer.gender }}</span>
+                </dd>
+                <dt><span>Birthday</span></dt>
+                <dd>
+                    <span>{{ customer.birthday }}</span>
+                </dd>
+                <dt><span>Extra Name</span></dt>
+                <dd>
+                    <span>{{ customer.extraName }}</span>
+                </dd>
+                <dt><span>Origin Address</span></dt>
+                <dd>
+                    <span>{{ customer.originAddress }}</span>
+                </dd>
+                <dt><span>Nation</span></dt>
+                <dd>
+                    <span>{{ customer.nation }}</span>
+                </dd>
+                <dt><span>Religion</span></dt>
+                <dd>
+                    <span>{{ customer.religion }}</span>
+                </dd>
+                <dt><span>Nationality</span></dt>
+                <dd>
+                    <span>{{ customer.nationality }}</span>
+                </dd>
+                <dt><span>Indentity</span></dt>
+                <dd>
+                    <span>{{ customer.indentity }}</span>
+                </dd>
+                <dt><span>Regularly Adress</span></dt>
+                <dd>
+                    <span>{{ customer.regularlyAdress }}</span>
+                </dd>
+                <dt><span>Address</span></dt>
+                <dd>
+                    <span>{{ customer.address }}</span>
+                </dd>
+                <dt><span>Academic Level</span></dt>
+                <dd>
+                    <span>{{ customer.academicLevel }}</span>
+                </dd>
+                <dt><span>Qualification</span></dt>
+                <dd>
+                    <span>{{ customer.qualification }}</span>
+                </dd>
+                <dt><span>Foreign Level</span></dt>
+                <dd>
+                    <span>{{ customer.foreignLevel }}</span>
+                </dd>
+                <dt><span>Job</span></dt>
+                <dd>
+                    <span>{{ customer.job }}</span>
+                </dd>
+                <dt><span>Email</span></dt>
+                <dd>
+                    <span>{{ customer.email }}</span>
+                </dd>
+                <dt><span>Passsword</span></dt>
+                <dd>
+                    <span>{{ customer.passsword }}</span>
+                </dd>
+                <dt><span>Phone</span></dt>
+                <dd>
+                    <span>{{ customer.phone }}</span>
+                </dd>
+                <dt><span>Status</span></dt>
+                <dd>
+                    <span>{{ customer.status }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/customer', customer.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

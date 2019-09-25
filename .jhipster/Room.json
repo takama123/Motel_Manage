@@ -1,0 +1,70 @@
+{
+  "name": "Room",
+  "fields": [
+    {
+      "fieldName": "title",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "price",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "RoomStatus",
+      "fieldValues": "AVAILABlE,BOOKED,REPAIRING"
+    },
+    {
+      "fieldName": "acreage",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "decription",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "file",
+      "otherEntityRelationshipName": "room",
+      "relationshipName": "images"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "services",
+      "otherEntityRelationshipName": "room",
+      "relationshipName": "services"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "convenient",
+      "otherEntityRelationshipName": "room",
+      "relationshipName": "convenients"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "contract",
+      "otherEntityRelationshipName": "room",
+      "relationshipName": "contracts"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "motel",
+      "otherEntityRelationshipName": "rooms",
+      "relationshipName": "motel",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200707071001",
+  "entityTableName": "room",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

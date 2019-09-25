@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="file">
+            <h2><span>File</span> {{ file.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span>Origin Name</span></dt>
+                <dd>
+                    <span>{{ file.originName }}</span>
+                </dd>
+                <dt><span>Name</span></dt>
+                <dd>
+                    <span>{{ file.name }}</span>
+                </dd>
+                <dt><span>Path</span></dt>
+                <dd>
+                    <span>{{ file.path }}</span>
+                </dd>
+                <dt><span>Motel</span></dt>
+                <dd>
+                    <div *ngIf="file.motel">
+                        <a [routerLink]="['/motel', file.motel?.id, 'view']">{{ file.motel?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span>Room</span></dt>
+                <dd>
+                    <div *ngIf="file.room">
+                        <a [routerLink]="['/room', file.room?.id, 'view']">{{ file.room?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/file', file.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

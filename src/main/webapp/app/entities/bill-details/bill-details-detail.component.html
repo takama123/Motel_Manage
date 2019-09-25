@@ -1,0 +1,68 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="billDetails">
+            <h2><span>Bill Details</span> {{ billDetails.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span>Start Date</span></dt>
+                <dd>
+                    <span>{{ billDetails.startDate }}</span>
+                </dd>
+                <dt><span>End Date</span></dt>
+                <dd>
+                    <span>{{ billDetails.endDate }}</span>
+                </dd>
+                <dt><span>Old Kwh</span></dt>
+                <dd>
+                    <span>{{ billDetails.oldKwh }}</span>
+                </dd>
+                <dt><span>Old Water</span></dt>
+                <dd>
+                    <span>{{ billDetails.oldWater }}</span>
+                </dd>
+                <dt><span>New Kwh</span></dt>
+                <dd>
+                    <span>{{ billDetails.newKwh }}</span>
+                </dd>
+                <dt><span>New Water</span></dt>
+                <dd>
+                    <span>{{ billDetails.newWater }}</span>
+                </dd>
+                <dt><span>Room Price</span></dt>
+                <dd>
+                    <span>{{ billDetails.roomPrice }}</span>
+                </dd>
+                <dt><span>Electricity Price</span></dt>
+                <dd>
+                    <span>{{ billDetails.electricityPrice }}</span>
+                </dd>
+                <dt><span>Water Price</span></dt>
+                <dd>
+                    <span>{{ billDetails.waterPrice }}</span>
+                </dd>
+                <dt><span>Contract</span></dt>
+                <dd>
+                    <div *ngIf="billDetails.contract">
+                        <a [routerLink]="['/contract', billDetails.contract?.id, 'view']">{{ billDetails.contract?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/bill-details', billDetails.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

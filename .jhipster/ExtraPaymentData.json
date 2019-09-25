@@ -1,0 +1,33 @@
+{
+  "name": "ExtraPaymentData",
+  "fields": [
+    {
+      "fieldName": "cost",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "decription",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "billDetails",
+      "otherEntityRelationshipName": "extraPaymentDatas",
+      "relationshipName": "billDetails",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200707071501",
+  "entityTableName": "extra_payment_data",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

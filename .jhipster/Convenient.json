@@ -1,0 +1,40 @@
+{
+  "name": "Convenient",
+  "fields": [
+    {
+      "fieldName": "title",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "decription",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "motel",
+      "otherEntityRelationshipName": "convenients",
+      "relationshipName": "motel",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "room",
+      "otherEntityRelationshipName": "convenients",
+      "relationshipName": "room",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200707071101",
+  "entityTableName": "convenient",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

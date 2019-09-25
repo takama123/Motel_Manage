@@ -1,0 +1,67 @@
+{
+  "name": "BillDetails",
+  "fields": [
+    {
+      "fieldName": "startDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "endDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "oldKwh",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "oldWater",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "newKwh",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "newWater",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "roomPrice",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "electricityPrice",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "waterPrice",
+      "fieldType": "Double"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "extraPaymentData",
+      "otherEntityRelationshipName": "billDetails",
+      "relationshipName": "extraPaymentDatas"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "contract",
+      "otherEntityRelationshipName": "paymentDatas",
+      "relationshipName": "contract",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200707071401",
+  "entityTableName": "bill_details",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

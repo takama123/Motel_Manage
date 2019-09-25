@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="services">
+            <h2><span>Services</span> {{ services.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span>Title</span></dt>
+                <dd>
+                    <span>{{ services.title }}</span>
+                </dd>
+                <dt><span>Price</span></dt>
+                <dd>
+                    <span>{{ services.price }}</span>
+                </dd>
+                <dt><span>Decription</span></dt>
+                <dd>
+                    <span>{{ services.decription }}</span>
+                </dd>
+                <dt><span>Motel</span></dt>
+                <dd>
+                    <div *ngIf="services.motel">
+                        <a [routerLink]="['/motel', services.motel?.id, 'view']">{{ services.motel?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span>Room</span></dt>
+                <dd>
+                    <div *ngIf="services.room">
+                        <a [routerLink]="['/room', services.room?.id, 'view']">{{ services.room?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/services', services.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

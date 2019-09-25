@@ -1,0 +1,83 @@
+<div>
+    <h2 id="page-heading">
+        <span>Bill Details</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-bill-details" [routerLink]="['/bill-details/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span>
+            Create a new Bill Details
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="billDetails?.length === 0">
+        <span>No billDetails found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="billDetails && billDetails.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span>ID</span></th>
+                    <th scope="col" ><span>Start Date</span></th>
+                    <th scope="col" ><span>End Date</span></th>
+                    <th scope="col" ><span>Old Kwh</span></th>
+                    <th scope="col" ><span>Old Water</span></th>
+                    <th scope="col" ><span>New Kwh</span></th>
+                    <th scope="col" ><span>New Water</span></th>
+                    <th scope="col" ><span>Room Price</span></th>
+                    <th scope="col" ><span>Electricity Price</span></th>
+                    <th scope="col" ><span>Water Price</span></th>
+                    <th scope="col" ><span>Contract</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let billDetails of billDetails ;trackBy: trackId">
+                    <td><a [routerLink]="['/bill-details', billDetails.id, 'view']">{{ billDetails.id }}</a></td>
+                    <td>{{ billDetails.startDate | date:'mediumDate' }}</td>
+                    <td>{{ billDetails.endDate | date:'mediumDate' }}</td>
+                    <td>{{ billDetails.oldKwh }}</td>
+                    <td>{{ billDetails.oldWater }}</td>
+                    <td>{{ billDetails.newKwh }}</td>
+                    <td>{{ billDetails.newWater }}</td>
+                    <td>{{ billDetails.roomPrice }}</td>
+                    <td>{{ billDetails.electricityPrice }}</td>
+                    <td>{{ billDetails.waterPrice }}</td>
+                    <td>
+                        <div *ngIf="billDetails.contract">
+                            <a [routerLink]="['/contract', billDetails.contract?.id, 'view']" >{{ billDetails.contract?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/bill-details', billDetails.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/bill-details', billDetails.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(billDetails)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

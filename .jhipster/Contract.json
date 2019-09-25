@@ -1,0 +1,50 @@
+{
+  "name": "Contract",
+  "fields": [
+    {
+      "fieldName": "checkInDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "checkOutDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "decription",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "billDetails",
+      "otherEntityRelationshipName": "contract",
+      "relationshipName": "paymentDatas"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "customer",
+      "otherEntityRelationshipName": "contracts",
+      "relationshipName": "customer",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "room",
+      "otherEntityRelationshipName": "contracts",
+      "relationshipName": "room",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200707071301",
+  "entityTableName": "contract",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

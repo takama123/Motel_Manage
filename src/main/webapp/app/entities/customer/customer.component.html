@@ -1,0 +1,99 @@
+<div>
+    <h2 id="page-heading">
+        <span>Customers</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-customer" [routerLink]="['/customer/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span>
+            Create a new Customer
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="customers?.length === 0">
+        <span>No customers found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="customers && customers.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span>ID</span></th>
+                    <th scope="col" ><span>First Name</span></th>
+                    <th scope="col" ><span>Last Name</span></th>
+                    <th scope="col" ><span>Gender</span></th>
+                    <th scope="col" ><span>Birthday</span></th>
+                    <th scope="col" ><span>Extra Name</span></th>
+                    <th scope="col" ><span>Origin Address</span></th>
+                    <th scope="col" ><span>Nation</span></th>
+                    <th scope="col" ><span>Religion</span></th>
+                    <th scope="col" ><span>Nationality</span></th>
+                    <th scope="col" ><span>Indentity</span></th>
+                    <th scope="col" ><span>Regularly Adress</span></th>
+                    <th scope="col" ><span>Address</span></th>
+                    <th scope="col" ><span>Academic Level</span></th>
+                    <th scope="col" ><span>Qualification</span></th>
+                    <th scope="col" ><span>Foreign Level</span></th>
+                    <th scope="col" ><span>Job</span></th>
+                    <th scope="col" ><span>Email</span></th>
+                    <th scope="col" ><span>Passsword</span></th>
+                    <th scope="col" ><span>Phone</span></th>
+                    <th scope="col" ><span>Status</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let customer of customers ;trackBy: trackId">
+                    <td><a [routerLink]="['/customer', customer.id, 'view']">{{ customer.id }}</a></td>
+                    <td>{{ customer.firstName }}</td>
+                    <td>{{ customer.lastName }}</td>
+                    <td>{{ customer.gender }}</td>
+                    <td>{{ customer.birthday }}</td>
+                    <td>{{ customer.extraName }}</td>
+                    <td>{{ customer.originAddress }}</td>
+                    <td>{{ customer.nation }}</td>
+                    <td>{{ customer.religion }}</td>
+                    <td>{{ customer.nationality }}</td>
+                    <td>{{ customer.indentity }}</td>
+                    <td>{{ customer.regularlyAdress }}</td>
+                    <td>{{ customer.address }}</td>
+                    <td>{{ customer.academicLevel }}</td>
+                    <td>{{ customer.qualification }}</td>
+                    <td>{{ customer.foreignLevel }}</td>
+                    <td>{{ customer.job }}</td>
+                    <td>{{ customer.email }}</td>
+                    <td>{{ customer.passsword }}</td>
+                    <td>{{ customer.phone }}</td>
+                    <td>{{ customer.status }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/customer', customer.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/customer', customer.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(customer)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,96 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-bill-details-heading">Create or edit a Bill Details</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_startDate">Start Date</label>
+                    <div class="input-group">
+                        <input id="field_startDate" type="text" class="form-control" name="startDate" ngbDatepicker #startDateDp="ngbDatepicker" formControlName="startDate"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="startDateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_endDate">End Date</label>
+                    <div class="input-group">
+                        <input id="field_endDate" type="text" class="form-control" name="endDate" ngbDatepicker #endDateDp="ngbDatepicker" formControlName="endDate"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="endDateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_oldKwh">Old Kwh</label>
+                    <input type="number" class="form-control" name="oldKwh" id="field_oldKwh"
+                           formControlName="oldKwh"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_oldWater">Old Water</label>
+                    <input type="number" class="form-control" name="oldWater" id="field_oldWater"
+                           formControlName="oldWater"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_newKwh">New Kwh</label>
+                    <input type="number" class="form-control" name="newKwh" id="field_newKwh"
+                           formControlName="newKwh"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_newWater">New Water</label>
+                    <input type="number" class="form-control" name="newWater" id="field_newWater"
+                           formControlName="newWater"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_roomPrice">Room Price</label>
+                    <input type="number" class="form-control" name="roomPrice" id="field_roomPrice"
+                           formControlName="roomPrice"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_electricityPrice">Electricity Price</label>
+                    <input type="number" class="form-control" name="electricityPrice" id="field_electricityPrice"
+                           formControlName="electricityPrice"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_waterPrice">Water Price</label>
+                    <input type="number" class="form-control" name="waterPrice" id="field_waterPrice"
+                           formControlName="waterPrice"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_contract">Contract</label>
+                    <select class="form-control" id="field_contract" name="contract" formControlName="contract">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="contractOption.id === editForm.get('contract')!.value?.id ? editForm.get('contract')!.value : contractOption" *ngFor="let contractOption of contracts; trackBy: trackById">{{ contractOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
