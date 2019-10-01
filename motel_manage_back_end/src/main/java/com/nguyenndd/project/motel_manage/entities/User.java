@@ -4,23 +4,17 @@ import java.time.ZonedDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.persistence.UniqueConstraint;
+
+import com.nguyenndd.project.motel_manage.enums.Role;
 
 import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "user")
-public class User {
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
+@Table(name = "user", uniqueConstraints = @UniqueConstraint(columnNames = {"user_name"}))
+public class User extends BaseEntity{
 
 	@Column(name = "user_name", nullable = false, length = 20)
 	private String userName;
@@ -28,10 +22,10 @@ public class User {
 	@Column(length = 20, nullable = false)
 	private String password;
 
-	@Column(name = "first_name")
+	@Column(name = "first_name", length = 100)
 	private String firstName;
 
-	@Column(name = "last_name")
+	@Column(name = "last_name", length = 100)
 	private String lastName;
 
 	@Column(name = "birthday")
@@ -43,10 +37,17 @@ public class User {
 	@Column(length = 100)
 	private String email;
 
-	@Column(name = "phone_number")
-	private String phoneNumber;
+	@Column(name = "phone")
+	private String phone;
+	
+	@Column
+	private String mobile;
 
-	@Column(name = "identity_id")
+	@Column(name = "identity_id", length = 10)
 	private String identityId;
+	
+	private Role role;
+	
+	private boolean status;
 
 }
