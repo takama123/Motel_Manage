@@ -1,9 +1,11 @@
 package com.nguyenndd.project.motel_manage.entities;
 
 import java.time.ZonedDateTime;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
@@ -49,5 +51,7 @@ public class User extends BaseEntity{
 	private Role role;
 	
 	private boolean status;
-
+	
+	@OneToMany(mappedBy = "customer")
+	private List<Booking> bookings;
 }
