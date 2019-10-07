@@ -36,4 +36,6 @@ public class Room extends BaseEntity {
 	@ManyToOne
 	@JoinColumn(name = "motel_id")
 	private Motel motel;
+	
+	
 }
