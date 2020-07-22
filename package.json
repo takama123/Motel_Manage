@@ -8,6 +8,7 @@
     "node_modules"
   ],
   "dependencies": {
+    "@angular/animations": "^10.0.4",
     "@angular/common": "10.0.0",
     "@angular/compiler": "10.0.0",
     "@angular/core": "10.0.0",
@@ -15,14 +16,17 @@
     "@angular/localize": "10.0.0",
     "@angular/platform-browser": "10.0.0",
     "@angular/platform-browser-dynamic": "10.0.0",
+    "@angular/platform-server": "^10.0.4",
     "@angular/router": "10.0.0",
     "@fortawesome/angular-fontawesome": "0.6.1",
     "@fortawesome/fontawesome-svg-core": "1.2.29",
     "@fortawesome/free-solid-svg-icons": "5.13.1",
     "@ng-bootstrap/ng-bootstrap": "6.1.0",
+    "@nguniversal/express-engine": "^10.0.1",
     "@ngx-translate/core": "12.1.2",
     "@ngx-translate/http-loader": "5.0.0",
     "bootstrap": "4.5.0",
+    "http-proxy-middleware": "^1.0.5",
     "moment": "2.27.0",
     "ng-jhipster": "0.14.0",
     "ngx-cookie-service": "3.0.4",
@@ -34,10 +38,14 @@
     "zone.js": "0.10.3"
   },
   "devDependencies": {
+    "@angular-builders/custom-webpack": "^10.0.0-beta.1",
+    "@angular-devkit/build-angular": "^0.1000.3",
     "@angular/cli": "10.0.0",
     "@angular/compiler-cli": "10.0.0",
     "@ngtools/webpack": "10.0.0",
+    "@nguniversal/builders": "^10.0.1",
     "@openapitools/openapi-generator-cli": "1.0.13-4.3.1",
+    "@types/express": "^4.17.7",
     "@types/jest": "26.0.3",
     "@types/node": "13.13.4",
     "@typescript-eslint/eslint-plugin": "2.30.0",
@@ -81,7 +89,7 @@
     "ts-loader": "7.0.5",
     "tslint": "6.1.2",
     "typescript": "3.9.5",
-    "webpack": "4.43.0",
+    "webpack": "^4.43.0",
     "webpack-bundle-analyzer": "3.8.0",
     "webpack-cli": "3.3.12",
     "webpack-dev-server": "3.11.0",
@@ -114,7 +122,10 @@
     "webpack:prod": "npm run cleanup && npm run webpack:prod:main && npm run clean-www",
     "webpack:test": "npm run test",
     "webpack-dev-server": "node --max_old_space_size=4096 node_modules/webpack-dev-server/bin/webpack-dev-server.js",
-    "webpack": "node --max_old_space_size=4096 node_modules/webpack/bin/webpack.js"
+    "webpack": "node --max_old_space_size=4096 node_modules/webpack/bin/webpack.js",
+    "dev:ssr": "ng run motel-manager:serve-ssr",
+    "serve:ssr": "node target/classes/static/server/en-US/main.js",
+    "build:ssr": "ng build --prod && ng run motel-manager:server:production"
   },
   "jestSonar": {
     "reportPath": "build/test-results/jest",

@@ -16,7 +16,7 @@ import { ErrorComponent } from './layouts/error/error.component';
 
 @NgModule({
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'motelManagerApp' }),
     MotelManagerSharedModule,
     MotelManagerCoreModule,
     MotelManagerHomeModule,

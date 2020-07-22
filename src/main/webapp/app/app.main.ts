@@ -9,8 +9,11 @@ if (module['hot']) {
   module['hot'].accept();
 }
 
-platformBrowserDynamic()
-  .bootstrapModule(MotelManagerAppModule, { preserveWhitespaces: true })
-  // eslint-disable-next-line no-console
-  .then(() => console.log('Application started'))
-  .catch(err => console.error(err));
+document.addEventListener('DOMContentLoaded', () => {
+  platformBrowserDynamic()
+    .bootstrapModule(MotelManagerAppModule, { preserveWhitespaces: true })
+    // eslint-disable-next-line no-console
+    .then(() => console.log('Application started'))
+    .catch(err => console.error(err));
+});
+
